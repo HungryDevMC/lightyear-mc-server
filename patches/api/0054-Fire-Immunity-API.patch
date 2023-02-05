@@ -1,0 +1,29 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Racci <90304606+DaRacci@users.noreply.github.com>
+Date: Fri, 4 Feb 2022 16:09:47 +1100
+Subject: [PATCH] Fire Immunity API
+
+
+diff --git a/src/main/java/org/bukkit/entity/Entity.java b/src/main/java/org/bukkit/entity/Entity.java
+index d8f30fca0b5b9673c5dd8a78e87a378c60d04067..8a980916176b2179168833f1d14872176837154e 100644
+--- a/src/main/java/org/bukkit/entity/Entity.java
++++ b/src/main/java/org/bukkit/entity/Entity.java
+@@ -1007,5 +1007,18 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
+      * @return True if in daylight
+      */
+     boolean isInDaylight();
++
++    /**
++     * Checks if the entity is fire immune
++     *
++     * @return True if fire immune
++     */
++    boolean isImmuneToFire();
++
++    /**
++     * Sets if the entity is fire immune
++     * Set this to null to restore the entity type default
++     */
++    void setImmuneToFire(@Nullable Boolean fireImmune);
+     // Purpur end
+ }

@@ -1,0 +1,23 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: BillyGalbreath <blake.galbreath@gmail.com>
+Date: Sat, 9 Jul 2022 00:57:32 -0500
+Subject: [PATCH] Add local difficulty api
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
+index f8d321e925bf2708e51590542325c1bdc67d5964..fcc6ac180a74daffa173866be3dd97a3ad63ebd7 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
+@@ -2237,6 +2237,12 @@ public class CraftWorld extends CraftRegionAccessor implements World {
+         return (this.getHandle().dragonFight() == null) ? null : new CraftDragonBattle(this.getHandle().dragonFight());
+     }
+ 
++    // Purpur start
++    public float getLocalDifficultyAt(Location location) {
++        return getHandle().getCurrentDifficultyAt(io.papermc.paper.util.MCUtil.toBlockPosition(location)).getEffectiveDifficulty();
++    }
++    // Purpur end
++
+     @Override
+     public PersistentDataContainer getPersistentDataContainer() {
+         return this.persistentDataContainer;

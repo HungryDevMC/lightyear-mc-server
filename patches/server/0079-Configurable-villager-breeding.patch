@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: draycia <lonelyyordle@gmail.com>
+Date: Tue, 31 Mar 2020 23:48:55 -0700
+Subject: [PATCH] Configurable villager breeding
+
+
+diff --git a/src/main/java/net/minecraft/world/entity/npc/Villager.java b/src/main/java/net/minecraft/world/entity/npc/Villager.java
+index fcb2d59d3ccb4a0601f82330878a784ece71f866..f225eb2f1d5a7c49fb2d6403388230666d411cc0 100644
+--- a/src/main/java/net/minecraft/world/entity/npc/Villager.java
++++ b/src/main/java/net/minecraft/world/entity/npc/Villager.java
+@@ -768,7 +768,7 @@ public class Villager extends AbstractVillager implements ReputationEventHandler
+ 
+     @Override
+     public boolean canBreed() {
+-        return this.foodLevel + this.countFoodPointsInInventory() >= 12 && !this.isSleeping() && this.getAge() == 0;
++        return this.level.purpurConfig.villagerCanBreed && this.foodLevel + this.countFoodPointsInInventory() >= 12 && !this.isSleeping() && this.getAge() == 0; // Purpur
+     }
+ 
+     private boolean hungry() {
+diff --git a/src/main/java/org/purpurmc/purpur/PurpurWorldConfig.java b/src/main/java/org/purpurmc/purpur/PurpurWorldConfig.java
+index 172978f5db69cd7e85aa413ed261ad996e67ee8e..10632aa9e97c712b11970b698432ed1a49292d86 100644
+--- a/src/main/java/org/purpurmc/purpur/PurpurWorldConfig.java
++++ b/src/main/java/org/purpurmc/purpur/PurpurWorldConfig.java
+@@ -1607,6 +1607,7 @@ public class PurpurWorldConfig {
+     public double villagerMaxHealth = 20.0D;
+     public boolean villagerFollowEmeraldBlock = false;
+     public boolean villagerCanBeLeashed = false;
++    public boolean villagerCanBreed = true;
+     private void villagerSettings() {
+         villagerRidable = getBoolean("mobs.villager.ridable", villagerRidable);
+         villagerRidableInWater = getBoolean("mobs.villager.ridable-in-water", villagerRidableInWater);
+@@ -1619,6 +1620,7 @@ public class PurpurWorldConfig {
+         villagerMaxHealth = getDouble("mobs.villager.attributes.max_health", villagerMaxHealth);
+         villagerFollowEmeraldBlock = getBoolean("mobs.villager.follow-emerald-blocks", villagerFollowEmeraldBlock);
+         villagerCanBeLeashed = getBoolean("mobs.villager.can-be-leashed", villagerCanBeLeashed);
++        villagerCanBreed = getBoolean("mobs.villager.can-breed", villagerCanBreed);
+     }
+ 
+     public boolean vindicatorRidable = false;

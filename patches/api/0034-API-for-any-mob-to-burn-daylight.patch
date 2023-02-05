@@ -1,0 +1,48 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ben Kerllenevich <ben@omega24.dev>
+Date: Tue, 25 May 2021 16:30:30 -0400
+Subject: [PATCH] API for any mob to burn daylight
+
+Co-authored by: Encode42 <me@encode42.dev>
+
+diff --git a/src/main/java/org/bukkit/entity/Entity.java b/src/main/java/org/bukkit/entity/Entity.java
+index 56afcc92854897ad5c971e576f96414bae766b7a..d8f30fca0b5b9673c5dd8a78e87a378c60d04067 100644
+--- a/src/main/java/org/bukkit/entity/Entity.java
++++ b/src/main/java/org/bukkit/entity/Entity.java
+@@ -1000,5 +1000,12 @@ public interface Entity extends Metadatable, CommandSender, Nameable, Persistent
+      * @return True if ridable in water
+      */
+     boolean isRidableInWater();
++
++    /**
++     * Checks if the entity is in daylight
++     *
++     * @return True if in daylight
++     */
++    boolean isInDaylight();
+     // Purpur end
+ }
+diff --git a/src/main/java/org/bukkit/entity/LivingEntity.java b/src/main/java/org/bukkit/entity/LivingEntity.java
+index a4fbc1f6f71759ed9e11b4487aff04961946b7d8..d1379d8eee19bcef3b9ffa7c86961f9ce57f76ad 100644
+--- a/src/main/java/org/bukkit/entity/LivingEntity.java
++++ b/src/main/java/org/bukkit/entity/LivingEntity.java
+@@ -1129,5 +1129,19 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource
+      * @param slot Equipment slot to play break animation for
+      */
+     void broadcastItemBreak(@NotNull org.bukkit.inventory.EquipmentSlot slot);
++
++    /**
++     * If this mob will burn in the sunlight
++     *
++     * @return True if mob will burn in sunlight
++     */
++    boolean shouldBurnInDay();
++
++    /**
++     * Set if this mob should burn in the sunlight
++     *
++     * @param shouldBurnInDay True to burn in sunlight
++     */
++    void setShouldBurnInDay(boolean shouldBurnInDay);
+     // Purpur end
+ }
