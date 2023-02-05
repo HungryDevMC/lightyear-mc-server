@@ -27,9 +27,9 @@ pluginManagement {
     }
 }
 
-rootProject.name = "purpur"
+rootProject.name = "lightyear"
 
-for (name in listOf("Purpur-API", "Purpur-Server")) {
+for (name in listOf("Lightyear-API", "Lightyear-Server")) {
     val projName = name.toLowerCase(Locale.ENGLISH)
     include(projName)
     findProject(":$projName")!!.projectDir = file(name)

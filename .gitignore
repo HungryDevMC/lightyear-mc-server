@@ -52,7 +52,7 @@ manifest.mf
 run/
 
 build-data/
-Purpur-API
-Purpur-MojangAPI
-Purpur-Server
+Lightyear-API
+Lightyear-MojangAPI
+Lightyear-Server
 *.jar
