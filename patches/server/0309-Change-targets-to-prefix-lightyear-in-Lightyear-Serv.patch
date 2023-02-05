@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: HungryDev <robinpeeters1401@gmail.com>
+Date: Sun, 5 Feb 2023 16:55:42 +0100
+Subject: [PATCH] Change targets to prefix lightyear in Lightyear-Server
+
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 020927dfe9624453311d1d171a10f44344ec8710..2a3cd2dd0e476eeb56a8f1a8a36a7c043eec41e3 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -7,7 +7,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation(project(":purpur-api")) // Purpur
++    implementation(project(":lightyear-api")) // Purpur
+     // Pufferfish start
+     implementation("io.papermc.paper:paper-mojangapi:1.19.3-R0.1-SNAPSHOT") {
+         exclude("io.papermc.paper", "paper-api")

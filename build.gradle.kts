@@ -53,7 +53,7 @@ dependencies {
 }
 
 paperweight {
-    serverProject.set(project(":purpur-server"))
+    serverProject.set(project(":lightyear-server"))
 
     remapRepo.set(paperMavenPublicUrl)
     decompileRepo.set(paperMavenPublicUrl)
@@ -70,7 +70,7 @@ paperweight {
 }
 
 tasks.generateDevelopmentBundle {
-    apiCoordinates.set("org.purpurmc.purpur:purpur-api")
+    apiCoordinates.set("org.lightyr.lightyear:lightyear-api")
     mojangApiCoordinates.set("io.papermc.paper:paper-mojangapi")
     libraryRepositories.set(
         listOf(
